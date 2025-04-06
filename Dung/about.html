@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About & FAQ | Cow Breeding Issues</title>
+  <style>
+    body { 
+      background-color: #FAFAFA; 
+      color: #333; 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      line-height: 1.6;
+    }
+    
+    header { 
+      background-color: #667558; 
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-space {
+      width: 200px; /* Space reserved for logo */
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-text {
+      color: white;
+      font-size: 18px;
+      font-style: italic;
+    }
+      
+    .logo-img {
+  height: 100%;      /* fit container height */
+  width: auto;       /* keep aspect ratio */
+  object-fit: contain;
+}
+    
+    .nav-container {
+      padding: 5px 15px;
+      border-radius: 30px;
+      background-color: #5C6B4E;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    nav a { 
+      color: #fff; 
+      padding: 8px 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    nav a:hover { 
+      color: #F9F7F2;
+      transform: translateY(-2px);
+    }
+    
+    nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    nav a:last-child::after {
+      display: none;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section { 
+      padding: 50px 0;
+      margin: 0 auto;
+    }
+    
+    .content-box {
+      background-color: #f8f8f3;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+    
+    h2 {
+      color: #5C6B4E;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #A89878;
+      font-size: 2rem;
+    }
+    
+    h3 {
+      color: #5C4B31;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    
+    /* Slideshow styles */
+    .slideshow-container {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 400px;
+    }
+    
+    .mySlides {
+      position: relative ;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: flex-end;
+    }
+    .mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes the image fill the box neatly */
+  border-radius: 10px;
+}
+    .mySlides.active {
+      opacity: 1;
+    }
+    
+    .slide-caption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(85, 99, 70, 0.9); /* Greenish overlay */
+  color: #fff;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 0 0 10px 10px;
+}
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+      padding: 15px;
+      color: white;
+      font-weight: bold;
+      background-color: rgba(92, 107, 78, 0.7);
+      border: none;
+      border-radius: 50%;
+      transition: 0.3s ease;
+      user-select: none;
+      z-index: 10;
+      font-size: 18px;
+    }
+    
+    .prev {
+      left: 20px;
+    }
+    
+    .next {
+      right: 20px;
+    }
+    
+    .prev:hover, .next:hover {
+      background-color: rgba(92, 107, 78, 1);
+    }
+    
+    /* Card hover effects */
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .info-card {
+      background-color: #F9F7F2;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+    
+    .info-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: #A89878;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease;
+    }
+    
+    .info-card:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .info-card h4 {
+      color: #5C6B4E;
+      margin-top: 0;
+      position: relative;
+      padding-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .info-card h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #A89878;
+    }
+    
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #5C6B4E;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -12px;
+      background-color: white;
+      border: 4px solid #A89878;
+      top: 20px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .timeline-left {
+      left: 0;
+    }
+    
+    .timeline-right {
+      left: 50%;
+    }
+    
+    .timeline-left::after {
+      right: -12px;
+    }
+    
+    .timeline-right::after {
+      left: -12px;
+    }
+    
+    .timeline-content {
+      padding: 25px;
+      background-color: #F9F7F2;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    
+    .timeline-year {
+      display: inline-block;
+      background-color: #5C6B4E;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .timeline-title {
+      font-size: 1.3rem;
+      color: #5C4B31;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    /* Innovation section with glowing effect */
+    .innovation-section {
+      position: relative;
+      background-color: #F9F7F2;
+      padding: 40px;
+      border-radius: 15px;
+      margin: 50px 0;
+      overflow: hidden;
+    }
+    
+    .innovation-section::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(168, 152, 120, 0.4) 0%, rgba(168, 152, 120, 0) 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+      animation: pulse 8s infinite alternate;
+    }
+    
+    @keyframes pulse {
+      0% {
+        opacity: 0.4;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0.8;
+        transform: scale(1.3);
+      }
+    }
+    
+    .tech-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .tech-item {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .tech-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .tech-icon {
+      min-width: 50px;
+      height: 50px;
+      background-color: rgba(92, 107, 78, 0.2);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 20px;
+      color: #5C6B4E;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    /* Mission statement with animation */
+    .mission-statement {
+      background-color: rgba(117, 132, 103, 0.1);
+      padding: 35px;
+      border-radius: 15px;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mission-statement p {
+      font-style: italic;
+      font-size: 1.3em;
+      color: #5C4B31;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      line-height: 1.8;
+    }
+    
+    .mission-statement::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(168, 152, 120, 0.2);
+      border-radius: 50%;
+      animation: float 8s infinite ease-in-out;
+    }
+    
+    .mission-statement::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(92, 107, 78, 0.1);
+      border-radius: 50%;
+      animation: float 12s infinite ease-in-out reverse;
+    }
+    
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(20px, 20px); }
+      100% { transform: translate(0, 0); }
+    }
+    
+    /* FAQ accordion styles */
+    .accordion {
+      margin-top: 40px;
+    }
+    
+    .accordion-item {
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .accordion-header {
+      background-color: #F9F7F2;
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+    
+    .accordion-header:hover {
+      background-color: #f0ede3;
+    }
+    
+    .accordion-header.active {
+      border-left: 4px solid #5C6B4E;
+      background-color: #f0ede3;
+    }
+    
+    .accordion-title {
+      font-weight: bold;
+      color: #5C4B31;
+      font-size: 1.1rem;
+    }
+    
+    .accordion-icon {
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+    
+    .accordion-icon::before,
+    .accordion-icon::after {
+      content: '';
+      position: absolute;
+      background-color: #5C6B4E;
+      transition: all 0.3s ease;
+    }
+    
+    .accordion-icon::before {
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .accordion-icon::after {
+      width: 2px;
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .accordion-header.active .accordion-icon::after {
+      transform: translateX(-50%) scaleY(0);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background-color: white;
+      transition: max-height 0.5s ease;
+    }
+    
+    .accordion-text {
+      padding: 25px;
+      line-height: 1.7;
+    }
+    
+    .social-footer {
+      background-color: #667558;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 60px;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    
+    .social-icon {
+      color: white;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .social-icon:hover {
+      transform: scale(1.1);
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    /* Social Media Icons */
+    .icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    
+    .linkedin-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E");
+    }
+    
+    .instagram-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E");
+    }
+    
+    .facebook-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z'/%3E%3C/svg%3E");
+    }
+    
+    /* Media Queries */
+    @media (max-width: 992px) {
+      .info-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .tech-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-right {
+        left: 0;
+      }
+      
+      .timeline-left::after, .timeline-right::after {
+        left: 15px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .info-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .tech-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .slideshow-container {
+        height: 300px;
+      }
+      
+      .mySlides {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-space">
+      <img src="clogo.jpg" alt="Company Logo" class="logo-img">
+    </div>
+    <div class="nav-container">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="control.html">Control</a>
+        <a href="about.html">About & FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <section>
+      <div class="content-box">
+        <h2>About Us</h2>
+        
+        <p>We blend tradition with technology to revive India’s native cow breeds. Using IoT sensors and AI, we monitor cow health and dung quality in real time—improving nutrition, detecting diseases early, and promoting sustainable farming. Our mission is to create a self-sustaining ecosystem that empowers farmers and preserves our heritage.</p>
+        
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+          <div class="mySlides"> 
+            <img src="images.jpg" alt="Our vision for modern breeding facilities" >
+            <div class="slide-caption">Our vision for modern breeding facilities</div>
+          </div>
+          <div class="mySlides">
+            <img src="cow2.jpg" alt="Sustainable cow dung processing technology" >
+
+          
+            <div class="slide-caption">Sustainable cow dung processing technology</div>
+          </div>
+          <div class="mySlides" style="background-image: url('/api/placeholder/700/300');">
+            <div class="slide-caption">Next-generation organic fertilizers</div>
+          </div>
+          <button class="prev">❮</button>
+          <button class="next">❯</button>
+        </div>
+        
+        <!-- Animated mission statement -->
+        <div class="mission-statement">
+          <p>"Our mission is to revolutionize traditional farming through innovative breeding technologies and sustainable waste management, creating value at every step of the agricultural process while respecting our environment."</p>
+        </div>
+        
+        <h3>What We Do</h3>
+        
+        <!-- Hover cards -->
+        <div class="info-cards">
+          <div class="info-card">
+            <h4>Breeding Solutions</h4>
+            <p>We're developing technologies to improve cow breeding success rates and genetic outcomes using data-driven approaches.</p>
+          </div>
+          <div class="info-card">
+            <h4>Waste Management</h4>
+            <p>Our innovative systems aim to transform cow dung into valuable resources, reducing environmental impact while creating new revenue streams.</p>
+          </div>
+          <div class="info-card">
+            <h4>Organic Products</h4>
+            <p>We're researching high-quality, sustainable products from cow dung including fertilizers, biogas, and other eco-friendly alternatives.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-box">
+        <h3>Our Future Vision</h3>
+        
+        <!-- Timeline layout -->
+        <div class="timeline">
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="timeline-year">Phase 1</span>
+              <h4 class="timeline-title">Research & Development</h4>
+              <p>Complete initial prototypes for our breeding technology and waste management systems. Establish key partnerships with agricultural research institutions.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <span class="timeline-year">Phase 2</span>
+              <h4 class="timeline-title">Testing & Validation</h4>
+              <p>Implement small-scale testing of our solutions with select farming partners. Gather performance data and refine our technologies based on real-world feedback.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="timeline-year">Phase 3</span>
+              <h4 class="timeline-title">Market Deployment</h4>
+              <p>Launch our breeding advisory services and waste management solutions to the broader market. Begin commercial production of our organic fertilizer products.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <span class="timeline-year">Phase 4</span>
+              <h4 class="timeline-title">Global Expansion</h4>
+              <p>Scale our technologies to international markets with a focus on developing regions where sustainable farming practices can have the greatest impact.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="timeline-year">Phase 5</span>
+              <h4 class="timeline-title">Full Ecosystem</h4>
+              <p>Develop a complete agricultural ecosystem that integrates breeding optimization, waste management, and product creation into a seamless platform for farmers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-box">
+        <!-- Innovation section with glowing effect -->
+        <div class="innovation-section">
+          <h3>Innovative Technologies</h3>
+          <p>Our approach combines several cutting-edge technologies to create sustainable solutions for modern agriculture:</p>
+          
+          <div class="tech-list">
+            <div class="tech-item">
+              <div class="tech-icon">AI</div>
+              <div>Artificial Intelligence for breeding optimization</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon">BT</div>
+              <div>Biotechnology for efficient waste processing</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon">IoT</div>
+              <div>Internet of Things for real-time monitoring</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon">BE</div>
+              <div>Bioengineering for enhanced product development</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon">ML</div>
+              <div>Machine Learning for predictive analytics</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon">RE</div>
+              <div>Renewable Energy integration in our systems</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-box">
+        <h2>Frequently Asked Questions</h2>
+        
+        <!-- Accordion FAQ -->
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-title">What breeding technologies are you developing?</div>
+              <div class="accordion-icon"></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-text">
+                We're combining traditional selective breeding approaches with advanced genetic analysis and AI-driven predictive models. Our technology aims to identify optimal breeding pairs for desired traits, monitor reproductive health in real-time, and provide data-driven recommendations to maximize successful outcomes and herd quality.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-title">How does your cow dung processing system work?</div>
+              <div class="accordion-icon"></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-text">
+                Our proprietary processing system will involve several stages of decomposition, filtration, and refinement. We're developing both aerobic and anaerobic processes to break down organic matter efficiently, extract valuable nutrients, and eliminate pathogens. The end result will be clean, odorless products that retain all the beneficial properties for agricultural use.
+              </div>
+            </div>
+          </div>
+          
+         
+          
+          
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-title">Are your solutions environmentally friendly?</div>
+              <div class="accordion-icon"></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-text">
+                Absolutely! Environmental sustainability is at the core of our mission. Our breeding technologies aim to reduce resource consumption while improving herd health. Our waste management systems transform what would otherwise be a pollutant into valuable resources, reducing methane emissions and water contamination. All our products are designed with ecological principles in mind.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-title">How can farmers benefit from your solutions?</div>
+              <div class="accordion-icon"></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-text">
+                Farmers can benefit in multiple ways: improved breeding outcomes lead to healthier, more productive herds; our waste management systems create new revenue streams from existing resources; and our organic products can reduce dependency on expensive chemical inputs. Overall, our solutions aim to increase profitability while promoting sustainable farming practices.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <div class="social-footer">
+    <div class="social-icons">
+      <a href="#" class="social-icon">
+        <span class="icon facebook-icon"></span>
+      </a>
+      <a href="#" class="social-icon">
+        <span class="icon instagram-icon"></span>
+      </a>
+      <a href="#" class="social-icon">
+        <span class="icon linkedin-icon"></span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Slideshow functionality
+    let slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      let slides = document.getElementsByClassName("mySlides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].classList.add("active");
+      setTimeout(showSlides, 5000);
+    }
+    
+    // Manual navigation
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    
+    prevBtn.addEventListener('click', () => {
+      let slides = document.getElementsByClassName("mySlides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      slideIndex--;
+      if (slideIndex < 1) {slideIndex = slides.length}
+      slides[slideIndex-1].classList.add("active");
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      let slides = document.getElementsByClassName("mySlides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].classList.add("active");
+    });
+    
+    // Accordion functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        const content = header.nextElementSibling;
+        
+        if (header.classList.contains('active')) {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+          content.style.maxHeight = 0;
+        }
+        
+        // Close other accordion items
+        accordionHeaders.forEach(otherHeader => {
+          if (otherHeader !== header) {
+            otherHeader.classList.remove('active');
+            otherHeader.nextElementSibling.style.maxHeight = 0;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

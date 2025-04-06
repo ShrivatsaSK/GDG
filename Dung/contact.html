@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Cow Breeding Issues</title>
+  <style>
+    body { 
+      background-color: #FAFAFA; 
+      color: #333; 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      line-height: 1.6;
+    }
+    
+    header { 
+      background-color: #667558; 
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-space {
+      width: 200px; /* Space reserved for logo */
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-text {
+      color: white;
+      font-size: 18px;
+      font-style: italic;
+    }
+      
+    .logo-img {
+  height: 100%;      /* fit container height */
+  width: auto;       /* keep aspect ratio */
+  object-fit: contain;
+}
+    .nav-container {
+      padding: 5px 15px;
+      border-radius: 30px;
+      background-color: #5C6B4E;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    nav a { 
+      color: #fff; 
+      padding: 8px 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    nav a:hover { 
+      color: #F9F7F2;
+      transform: translateY(-2px);
+    }
+    
+    nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    nav a:last-child::after {
+      display: none;
+    }
+    
+    section { 
+      padding: 40px;
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    
+    h2 {
+      color: #5C6B4E;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #A89878;
+    }
+    
+    .email-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .email-card {
+      background-color: #F9F7F2;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .email-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .email-title {
+      font-weight: bold;
+      color: #5C4B31;
+      margin-bottom: 5px;
+    }
+    
+    .email-address {
+      color: #758467;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    
+    .email-address:hover {
+      text-decoration: underline;
+    }
+    
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #5C4B31;
+      font-weight: bold;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 15px;
+      background: white;
+      color: #333;
+      border: 1px solid #A89878;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      transition: border-color 0.3s ease;
+    }
+    
+    input:focus, textarea:focus {
+      border-color: #758467;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(117, 132, 103, 0.2);
+    }
+    
+    button {
+      padding: 12px 25px;
+      background: #758467;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    button:hover {
+      background: #667558;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    
+    .social-footer {
+      background-color: #667558;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    
+    .social-icon {
+      color: white;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .social-icon:hover {
+      transform: scale(1.1);
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    /* Social Media Icons */
+    .icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    
+    .linkedin-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E");
+    }
+    
+    .instagram-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E");
+    }
+    
+    .facebook-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-space">
+      <img src="clogo.jpg" alt="Company Logo" class="logo-img">
+    </div>
+    <div class="nav-container">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="control.html">Control</a>
+        <a href="about.html">About & FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <h2>Contact Us</h2>
+    
+    <p>Have questions about cow breeding or our cow dung products? Reach out to our team via email:</p>
+    
+    <div class="email-grid">
+      <div class="email-card">
+        <div class="email-title">General Inquiries</div>
+        <a href="mailto:info@cowbreeding.com" class="email-address">info@cowbreeding.com</a>
+      </div>
+      <div class="email-card">
+        <div class="email-title">Breeding Services</div>
+        <a href="mailto:breeding@cowbreeding.com" class="email-address">breeding@cowbreeding.com</a>
+      </div>
+      <div class="email-card">
+        <div class="email-title">Cow Dung Products</div>
+        <a href="mailto:products@cowbreeding.com" class="email-address">products@cowbreeding.com</a>
+      </div>
+      <div class="email-card">
+        <div class="email-title">Customer Support</div>
+        <a href="mailto:support@cowbreeding.com" class="email-address">support@cowbreeding.com</a>
+      </div>
+    </div>
+    
+    <form>
+      <label>Name:</label>
+      <input type="text" name="name" required>
+      
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      
+      <label>Message:</label>
+      <textarea name="message" rows="5" required></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <div class="social-footer">
+    <div class="social-icons">
+      <a href="#" class="social-icon">
+        <div class="icon linkedin-icon"></div>
+      </a>
+      <a href="#" class="social-icon">
+        <div class="icon instagram-icon"></div>
+      </a>
+      <a href="#" class="social-icon">
+        <div class="icon facebook-icon"></div>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
